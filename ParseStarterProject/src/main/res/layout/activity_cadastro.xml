@@ -81,13 +81,12 @@
         android:text="@string/botao_cadastro" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/text_faca_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/button_cadastrar"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="13dp"
-        android:onClick="abrirLoginUsuario"
         android:text="@string/fazer_login" />
 
     </RelativeLayout>
