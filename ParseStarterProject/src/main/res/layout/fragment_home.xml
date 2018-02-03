@@ -5,11 +5,12 @@
     tools:context="com.parse.starter.fragments.HomeFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ListView
+        android:id="@+id/list_postagens_home"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="HOME"
-        android:layout_gravity="center"
-        android:textColor="@android:color/black"/>
+        android:layout_gravity="center_horizontal|top"/>
+
+
 
 </FrameLayout>

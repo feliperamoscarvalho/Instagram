@@ -35,6 +35,7 @@ import com.parse.SaveCallback;
 import com.parse.SignUpCallback;
 import com.parse.starter.R;
 import com.parse.starter.adapter.TabsAdapter;
+import com.parse.starter.fragments.HomeFragment;
 import com.parse.starter.util.SlidingTabLayout;
 
 import java.io.ByteArrayOutputStream;
@@ -141,6 +142,12 @@ public class MainActivity extends AppCompatActivity {
                     public void done(ParseException e) {
                         if(e == null){
                             Toast.makeText(getApplicationContext(), "Imagem adicionada com sucesso!", Toast.LENGTH_LONG).show();
+
+                            //Atualiza a listagem de itens do Fragment Home
+                            TabsAdapter adapterNovo = (TabsAdapter) viewPager.getAdapter();
+                            HomeFragment homeFragmentNovo = (HomeFragment) adapterNovo.getFragment(0);
+                            homeFragmentNovo.atualizaPostagens();
+
                         }else{
                             Toast.makeText(getApplicationContext(), "Erro ao postar imagem, tente novamente!", Toast.LENGTH_LONG).show();
                         }

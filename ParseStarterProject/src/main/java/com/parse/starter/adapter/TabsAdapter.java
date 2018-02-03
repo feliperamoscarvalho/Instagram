@@ -9,10 +9,13 @@ import android.support.v4.content.ContextCompat;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.ImageSpan;
+import android.view.ViewGroup;
 
 import com.parse.starter.R;
 import com.parse.starter.fragments.HomeFragment;
 import com.parse.starter.fragments.UsuariosFragment;
+
+import java.util.HashMap;
 
 /**
  * Created by Felipe on 14/01/2018.
@@ -24,6 +27,7 @@ public class TabsAdapter extends FragmentStatePagerAdapter {
     //private String[] abas = new String[]{"HOME","USUARIOS"};
     private int[] icones = new int[]{R.drawable.ic_action_home, R.drawable.ic_people};
     private int tamanhoIcone;
+    private HashMap<Integer,Fragment> fragmentosUtilizados;
 
     public TabsAdapter(FragmentManager fm, Context c) {
         super(fm);
@@ -31,6 +35,7 @@ public class TabsAdapter extends FragmentStatePagerAdapter {
         //Calcular o tamanho do ícone para se adaptar a qualquer tamanho de tela
         double escala = this.context.getResources().getDisplayMetrics().density;
         tamanhoIcone = (int) (36 * escala);
+        this.fragmentosUtilizados = new HashMap<>();
     }
 
     @Override
@@ -39,13 +44,25 @@ public class TabsAdapter extends FragmentStatePagerAdapter {
         switch (position){
             case 0:
                 fragment = new HomeFragment();
+                fragmentosUtilizados.put(position, fragment);
                 break;
             case 1:
                 fragment = new UsuariosFragment();
+                //fragmentosUtilizados.put(position, fragment);
                 break;
         }
 
         return fragment;
+    }
+
+    public Fragment getFragment(Integer indice){
+        return fragmentosUtilizados.get(indice);
+    }
+
+    @Override
+    public void destroyItem(ViewGroup container, int position, Object object) {
+        super.destroyItem(container, position, object);
+        fragmentosUtilizados.remove(position);
     }
 
     @Override

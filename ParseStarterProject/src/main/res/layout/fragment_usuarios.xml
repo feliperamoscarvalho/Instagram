@@ -5,11 +5,12 @@
     tools:context="com.parse.starter.fragments.UsuariosFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <ListView
+        android:id="@+id/list_usuarios"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="USUARIOS"
-        android:layout_gravity="center"
-        android:textColor="@android:color/black"/>
+        android:divider="@color/cinza"
+        android:dividerHeight="1dp"
+        android:layout_height="wrap_content"></ListView>
 
 </FrameLayout>
